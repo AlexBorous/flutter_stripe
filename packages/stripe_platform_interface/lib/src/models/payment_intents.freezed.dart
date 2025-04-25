@@ -51,6 +51,9 @@ mixin _$PaymentIntent {
   /// Id of the payment method used in this intent.
   String? get paymentMethodId => throw _privateConstructorUsedError;
 
+  /// The payment method used in this intent.
+  Map<String, dynamic>? get paymentMethod => throw _privateConstructorUsedError;
+
   /// Localized description that provides additional context to users.
   String? get description => throw _privateConstructorUsedError;
 
@@ -102,6 +105,7 @@ abstract class $PaymentIntentCopyWith<$Res> {
       CaptureMethod captureMethod,
       ConfirmationMethod confirmationMethod,
       String? paymentMethodId,
+      Map<String, dynamic>? paymentMethod,
       String? description,
       String? receiptEmail,
       String? canceledAt,
@@ -140,6 +144,7 @@ class _$PaymentIntentCopyWithImpl<$Res, $Val extends PaymentIntent>
     Object? captureMethod = null,
     Object? confirmationMethod = null,
     Object? paymentMethodId = freezed,
+    Object? paymentMethod = freezed,
     Object? description = freezed,
     Object? receiptEmail = freezed,
     Object? canceledAt = freezed,
@@ -189,6 +194,10 @@ class _$PaymentIntentCopyWithImpl<$Res, $Val extends PaymentIntent>
           ? _value.paymentMethodId
           : paymentMethodId // ignore: cast_nullable_to_non_nullable
               as String?,
+      paymentMethod: freezed == paymentMethod
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -282,6 +291,7 @@ abstract class _$$PaymentIntentImplCopyWith<$Res>
       CaptureMethod captureMethod,
       ConfirmationMethod confirmationMethod,
       String? paymentMethodId,
+      Map<String, dynamic>? paymentMethod,
       String? description,
       String? receiptEmail,
       String? canceledAt,
@@ -321,6 +331,7 @@ class __$$PaymentIntentImplCopyWithImpl<$Res>
     Object? captureMethod = null,
     Object? confirmationMethod = null,
     Object? paymentMethodId = freezed,
+    Object? paymentMethod = freezed,
     Object? description = freezed,
     Object? receiptEmail = freezed,
     Object? canceledAt = freezed,
@@ -370,6 +381,10 @@ class __$$PaymentIntentImplCopyWithImpl<$Res>
           ? _value.paymentMethodId
           : paymentMethodId // ignore: cast_nullable_to_non_nullable
               as String?,
+      paymentMethod: freezed == paymentMethod
+          ? _value._paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -417,13 +432,15 @@ class _$PaymentIntentImpl implements _PaymentIntent {
       required this.captureMethod,
       required this.confirmationMethod,
       this.paymentMethodId,
+      final Map<String, dynamic>? paymentMethod,
       this.description,
       this.receiptEmail,
       this.canceledAt,
       this.nextAction,
       this.shipping,
       this.mandateData,
-      this.latestCharge});
+      this.latestCharge})
+      : _paymentMethod = paymentMethod;
 
   factory _$PaymentIntentImpl.fromJson(Map<String, dynamic> json) =>
       _$$PaymentIntentImplFromJson(json);
@@ -468,6 +485,19 @@ class _$PaymentIntentImpl implements _PaymentIntent {
   @override
   final String? paymentMethodId;
 
+  /// The payment method used in this intent.
+  final Map<String, dynamic>? _paymentMethod;
+
+  /// The payment method used in this intent.
+  @override
+  Map<String, dynamic>? get paymentMethod {
+    final value = _paymentMethod;
+    if (value == null) return null;
+    if (_paymentMethod is EqualUnmodifiableMapView) return _paymentMethod;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   /// Localized description that provides additional context to users.
   @override
   final String? description;
@@ -501,7 +531,7 @@ class _$PaymentIntentImpl implements _PaymentIntent {
 
   @override
   String toString() {
-    return 'PaymentIntent(id: $id, amount: $amount, created: $created, currency: $currency, status: $status, clientSecret: $clientSecret, livemode: $livemode, captureMethod: $captureMethod, confirmationMethod: $confirmationMethod, paymentMethodId: $paymentMethodId, description: $description, receiptEmail: $receiptEmail, canceledAt: $canceledAt, nextAction: $nextAction, shipping: $shipping, mandateData: $mandateData, latestCharge: $latestCharge)';
+    return 'PaymentIntent(id: $id, amount: $amount, created: $created, currency: $currency, status: $status, clientSecret: $clientSecret, livemode: $livemode, captureMethod: $captureMethod, confirmationMethod: $confirmationMethod, paymentMethodId: $paymentMethodId, paymentMethod: $paymentMethod, description: $description, receiptEmail: $receiptEmail, canceledAt: $canceledAt, nextAction: $nextAction, shipping: $shipping, mandateData: $mandateData, latestCharge: $latestCharge)';
   }
 
   @override
@@ -525,6 +555,8 @@ class _$PaymentIntentImpl implements _PaymentIntent {
                 other.confirmationMethod == confirmationMethod) &&
             (identical(other.paymentMethodId, paymentMethodId) ||
                 other.paymentMethodId == paymentMethodId) &&
+            const DeepCollectionEquality()
+                .equals(other._paymentMethod, _paymentMethod) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.receiptEmail, receiptEmail) ||
@@ -555,6 +587,7 @@ class _$PaymentIntentImpl implements _PaymentIntent {
       captureMethod,
       confirmationMethod,
       paymentMethodId,
+      const DeepCollectionEquality().hash(_paymentMethod),
       description,
       receiptEmail,
       canceledAt,
@@ -591,6 +624,7 @@ abstract class _PaymentIntent implements PaymentIntent {
       required final CaptureMethod captureMethod,
       required final ConfirmationMethod confirmationMethod,
       final String? paymentMethodId,
+      final Map<String, dynamic>? paymentMethod,
       final String? description,
       final String? receiptEmail,
       final String? canceledAt,
@@ -641,6 +675,10 @@ abstract class _PaymentIntent implements PaymentIntent {
   /// Id of the payment method used in this intent.
   @override
   String? get paymentMethodId;
+
+  /// The payment method used in this intent.
+  @override
+  Map<String, dynamic>? get paymentMethod;
 
   /// Localized description that provides additional context to users.
   @override

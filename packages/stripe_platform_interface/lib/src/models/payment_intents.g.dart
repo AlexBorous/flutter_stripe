@@ -19,6 +19,7 @@ _$PaymentIntentImpl _$$PaymentIntentImplFromJson(Map<String, dynamic> json) =>
       confirmationMethod:
           $enumDecode(_$ConfirmationMethodEnumMap, json['confirmationMethod']),
       paymentMethodId: json['paymentMethodId'] as String?,
+      paymentMethod: json['paymentMethod'] as Map<String, dynamic>?,
       description: json['description'] as String?,
       receiptEmail: json['receiptEmail'] as String?,
       canceledAt: json['canceledAt'] as String?,
@@ -47,6 +48,7 @@ Map<String, dynamic> _$$PaymentIntentImplToJson(_$PaymentIntentImpl instance) =>
       'confirmationMethod':
           _$ConfirmationMethodEnumMap[instance.confirmationMethod]!,
       'paymentMethodId': instance.paymentMethodId,
+      'paymentMethod': instance.paymentMethod,
       'description': instance.description,
       'receiptEmail': instance.receiptEmail,
       'canceledAt': instance.canceledAt,

@@ -48,6 +48,9 @@ class PaymentIntent with _$PaymentIntent {
     /// Id of the payment method used in this intent.
     String? paymentMethodId,
 
+    /// The payment method used in this intent.
+    Map<String, dynamic>? paymentMethod,
+
     /// Localized description that provides additional context to users.
     String? description,
 
